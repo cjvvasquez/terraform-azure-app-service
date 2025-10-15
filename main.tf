@@ -11,6 +11,7 @@ resource "azurerm_service_plan" "service_plan" {
   sku_name            = "F1"
   os_type             = "Linux"
   worker_count        = 1
+  always_on           = false
   depends_on          = [azurerm_resource_group.rg]
 }
 
