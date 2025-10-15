@@ -28,3 +28,6 @@ jobs:
       - id: plan
         run: terraform plan -no-color -var="subscriptionID=${{ vars.AZURE_SUBS_ID }}"
 
+      - id: apply
+        run: terraform apply -var="subscriptionID=${{ vars.AZURE_SUBS_ID }}" --auto-approve
+
