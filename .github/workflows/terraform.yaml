@@ -19,9 +19,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v5
 
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - run: terraform init
+      - id: init
+        run: terraform init
+
       - id: plan
         run: terraform plan -no-color
+
