@@ -28,6 +28,15 @@ jobs:
       - id: plan
         run: terraform plan -no-color -var="subscriptionID=${{ vars.AZURE_SUBS_ID }}"
 
+      - name: Manual Validation
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: cjvvasquez
+          minimum-approvals: 1
+          issue-title: "Deploying v1.3.5 to prod from staging"
+          fail-on-denial: true
+
       - id: apply
         run: terraform apply -var="subscriptionID=${{ vars.AZURE_SUBS_ID }}" --auto-approve
 
