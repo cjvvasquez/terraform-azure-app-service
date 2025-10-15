@@ -1,3 +1,5 @@
 .terr*
 *.tfstate
 *.tfstate.*
+credentials.txt
+
