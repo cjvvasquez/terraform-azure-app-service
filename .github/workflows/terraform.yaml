@@ -21,3 +21,7 @@ jobs:
 
       - name: Terraform
         uses: hashicorp/setup-terraform@v3
+
+      - run: terraform init
+      - id: plan
+        run: terraform plan -no-color
