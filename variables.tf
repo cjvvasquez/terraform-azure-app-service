@@ -1,3 +1,3 @@
 variable "client_secret" {
-  sensitive   = true
+  sensitive = true
 }
